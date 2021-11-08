@@ -1,0 +1,12 @@
+---
+- name: "Setup ceph keyrings"
+  tags:
+    - ceph
+    - ceph.keyring
+  ansible.builtin.import_tasks: keyring.yaml
+- name: "Setup ceph client"
+  tags:
+    - never
+    - ceph
+    - ceph.config
+  ansible.builtin.import_tasks: config.yaml

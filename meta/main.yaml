@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  author: mario_slowinski
+  description: Configure ceph
+
+  license: GPL-3.0-only
+
+  min_ansible_version: 2.10
+
+  platforms:
+    - name: GenericLinux
+      versions:
+        - any
+
+  galaxy_tags:
+    - ceph
+    - storage
+
+dependencies:
+  - src: https://github.com/mario-slowinski/user
+    user_groups: "{{ ceph_groups }}"
+    user_accounts: "{{ ceph_accounts }}"
+  - src: https://github.com/mario-slowinski/software
+    software_pkgs: "{{ ceph_pkgs }}"

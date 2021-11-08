@@ -1,0 +1,9 @@
+---
+- name: "Set ceph config options in '{{ ceph_config_file['path'] }}'"
+  ansible.builtin.template:
+    src: config.ji2
+    dest: "{{ ceph_config_file['path'] }}"
+    owner: "{{ ceph_config_file['owner'] }}"
+    group: "{{ ceph_config_file['group'] }}"
+    mode: "{{ ceph_config_file['mode'] }}"
+    setype: "{{ ceph_config_file['setype'] }}"
