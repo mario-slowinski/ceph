@@ -1,0 +1,7 @@
+---
+ceph_config_file:
+  path: /etc/ceph/ceph.conf
+  owner: ceph
+  group: ceph
+  mode: 0o644
+  setype: etc_t

@@ -1,0 +1,12 @@
+---
+- name: "Setup keyrings"
+  ansible.builtin.template:
+    src: keyring.ji2
+    dest: "{{ item['path'] }}"
+    owner: "{{ item['owner'] | default(omit) }}"
+    group: "{{ item['group'] | default(omit) }}"
+    mode: "{{ item['mode'] | default(omit) }}"
+    setype: "{{ item['setype'] | default(omit) }}"
+  loop: "{{ ceph_keyrings }}"
+  loop_control:
+    label: "{{ item['name'] }} path={{ item['path'] }}"

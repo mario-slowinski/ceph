@@ -1,0 +1,5 @@
+[{{ item['name'] }}]
+{{ "\t" }}key = {{ item['key'] }}
+{% for cap in item['caps'].splitlines() %}
+  {{- "\t" }}{{ cap | regex_replace(':\s+\[',' ') | regex_replace('\]\s+',' = "') | regex_replace('([^"])$','\\1"') }}
+{% endfor %}

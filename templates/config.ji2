@@ -1,0 +1,8 @@
+[global]
+{{ ceph_config_options['global'] }}
+
+[mon]
+{{ ceph_config_options['mon'] }}
+
+[osd]
+{{ ceph_config_options['osd'] }}
