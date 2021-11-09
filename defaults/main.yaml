@@ -15,8 +15,3 @@ ceph_accounts:
     password_lock: true
     system: true
     state: "present"
-
-ceph_pkgs:
-  - name: ceph-common
-    update_cache: true
-    state: latest
