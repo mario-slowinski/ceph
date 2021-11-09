@@ -10,3 +10,10 @@ ceph_config_file:
   group: ceph
   mode: 0o644
   setype: etc_t
+
+ceph_keyring:
+  path: "/etc/ceph/ceph.{{ item['name'] }}.keyring"
+  owner: ceph
+  group: ceph
+  mode: 0o400
+  setype: etc_t
