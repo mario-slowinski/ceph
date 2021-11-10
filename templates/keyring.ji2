@@ -1,5 +1,9 @@
+{% if item['keyring'] is defined %}
 [{{ item['name'] }}]
 {{ "\t" }}key = {{ item['key'] }}
+{% elif item['key'] is defined %}
+{{ item['key'] }}
+{% endif %}
 {% set caps = item['caps'] | default("") %}
 {% for cap in caps.splitlines() %}
   {{- "\t" }}{{ cap | regex_replace(':\s+\[',' ') | regex_replace('\]\s+',' = "') | regex_replace('([^"])$','\\1"') }}
