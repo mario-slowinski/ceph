@@ -1,12 +1,23 @@
 ---
-- name: "Setup ceph keyrings"
-  tags:
-    - ceph
-    - ceph.keyring
-  ansible.builtin.import_tasks: keyring.yaml
 - name: "Setup ceph client"
   tags:
     - never
     - ceph
     - ceph.config
   ansible.builtin.import_tasks: config.yaml
+
+- name: "Setup ceph keys and keyrings"
+  tags:
+    - ceph
+    - ceph.keyring
+  ansible.builtin.import_tasks: keyring.yaml
+
+- name: "Setup ceph mount"
+  tags:
+    - ceph
+    - ceph.mount
+  ansible.builtin.import_role:
+    name: disk
+    tasks_from: mount.yaml
+  vars:
+    disk_mounts: "{{ ceph_mounts }}"
