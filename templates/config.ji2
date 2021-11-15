@@ -1,8 +1,8 @@
 [global]
-{{ ceph_config_options['global'] }}
+{{ ceph_config_global }}
 
 [mon]
-{{ ceph_config_options['mon'] }}
+{{ ceph_config_mon }}
 
 [osd]
-{{ ceph_config_options['osd'] }}
+{{ ceph_config_osd }}
