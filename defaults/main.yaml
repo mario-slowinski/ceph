@@ -1,4 +1,9 @@
 ---
+ceph_pkgs:
+  - name: ceph-common
+    update_cache: true
+    state: latest
+
 ceph_groups:
   - name: ceph
     gid: 167
