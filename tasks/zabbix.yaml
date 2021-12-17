@@ -1,0 +1,19 @@
+---
+- name: "Find mgr config directory"
+  ansible.builtin.find:
+    paths: /var/lib/ceph
+    file_type: directory
+    patterns: 'mgr.*'
+    recurse: true
+  register: ceph_mgr
+    
+- name: "Add zabbix sender to container"
+  ansible.builtin.lineinfile:
+    backrefs: true
+    path: "{{ item['path'] }}/unit.run"
+    regexp: '^/usr/bin/docker run (?!-v /usr/bin/zabbix_sender:/usr/bin/zabbix_sender:ro -v /usr/lib/x86_64-linux-gnu/libpcre.so.3:/lib64/libpcre.so.3:ro)(.*)$'
+    line: "/usr/bin/docker run -v /usr/bin/zabbix_sender:/usr/bin/zabbix_sender:ro -v /usr/lib/x86_64-linux-gnu/libpcre.so.3:/lib64/libpcre.so.3:ro \\1"
+    backup: "{{ backup | default(omit) }}"
+  loop: "{{ ceph_mgr['files'] }}"
+  loop_control:
+    label: "{{ item['path'] }}"
