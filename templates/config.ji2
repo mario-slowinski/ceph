@@ -1,8 +1,12 @@
+{% if ceph_config_global is defined -%}
 [global]
-{{ ceph_config_global }}
-
+{{ ceph_config_global.splitlines(true) | map('regex_replace','^(.+)','  \\1') | join('') }}
+{% endif %}
+{% if ceph_config_mon is defined -%}
 [mon]
-{{ ceph_config_mon }}
-
+{{ ceph_config_mon.splitlines(true) | map('regex_replace','^(.+)','  \\1') | join('') }}
+{% endif %}
+{% if ceph_config_osd is defined -%}
 [osd]
-{{ ceph_config_osd }}
+{{ ceph_config_osd.splitlines(true) | map('regex_replace','^(.+)','  \\1') | join('') }}
+{% endif %}
