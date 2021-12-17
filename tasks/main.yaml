@@ -12,6 +12,12 @@
     - ceph.keyring
   ansible.builtin.import_tasks: keyring.yaml
 
+- name: "Setup ceph zabbix"
+  tags:
+    - ceph
+    - ceph.zabbix
+  ansible.builtin.import_tasks: zabbix.yaml
+
 - name: "Setup ceph mount"
   tags:
     - ceph
