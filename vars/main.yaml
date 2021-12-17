@@ -10,5 +10,5 @@ ceph_keyring:
   path: "/etc/ceph/ceph.{{ item['name'] }}.keyring"
   owner: ceph
   group: ceph
-  mode: 0o400
+  mode: 0o600
   setype: etc_t
