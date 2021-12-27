@@ -1,14 +1,14 @@
 ---
 ceph_config_file:
   path: /etc/ceph/ceph.conf
-  owner: ceph
-  group: ceph
+  owner: root
+  group: root
   mode: 0o644
   setype: etc_t
 
 ceph_keyring:
   path: "/etc/ceph/ceph.{{ item['name'] }}.keyring"
-  owner: ceph
-  group: ceph
+  owner: root
+  group: root
   mode: 0o600
   setype: etc_t
