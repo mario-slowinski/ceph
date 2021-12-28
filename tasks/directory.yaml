@@ -1,0 +1,9 @@
+---
+- name: "Create ceph config directory '{{ ceph_config_file['path'] | dirname }}'"
+  ansible.builtin.file:
+    state: directory
+    path: "{{ ceph_config_file['path'] | dirname }}"
+    owner: "{{ ceph_config_file['owner'] }}"
+    group: "{{ ceph_config_file['group'] }}"
+    mode: "{{ ceph_config_file['dir'] }}"
+    setype: "{{ ceph_config_file['setype'] }}"
