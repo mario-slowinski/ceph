@@ -4,6 +4,7 @@ ceph_config_file:
   owner: root
   group: root
   mode: 0o644
+  dir: 0o755
   setype: etc_t
 
 ceph_keyring:
@@ -11,4 +12,5 @@ ceph_keyring:
   owner: root
   group: root
   mode: 0o600
+  dir: 0o755
   setype: etc_t
