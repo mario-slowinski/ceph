@@ -1,6 +1,6 @@
 {% if item['keyring'] is defined %}
 [{{ item['name'] }}]
-{{ "\t" }}key = {{ item['key'] }}
+{{ "\t" }}key = {{ item['keyring'] }}
 {% elif item['key'] is defined %}
 {{ item['key'] }}
 {% endif %}
