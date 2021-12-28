@@ -1,7 +1,6 @@
 ---
 - name: "Setup ceph client"
   tags:
-    - never
     - ceph
     - ceph.config
   ansible.builtin.import_tasks: config.yaml
@@ -27,3 +26,4 @@
     tasks_from: mount.yaml
   vars:
     disk_mounts: "{{ ceph_mounts }}"
+  when: ceph_mounts is defined
