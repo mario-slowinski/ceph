@@ -1,4 +1,6 @@
 ---
+- ansible.builtin.import_tasks: directory.yaml
+
 - name: "Set ceph config options in '{{ ceph_config_file['path'] }}'"
   ansible.builtin.template:
     src: config.ji2

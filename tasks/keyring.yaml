@@ -1,4 +1,6 @@
 ---
+- ansible.builtin.import_tasks: directory.yaml
+
 - name: "Setup keyrings"
   ansible.builtin.template:
     src: keyring.ji2
