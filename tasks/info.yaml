@@ -1,0 +1,21 @@
+---
+- name: "Get ceph mon metadata"
+  tags: latex.ceph.mon
+  ansible.builtin.command: ceph mon metadata
+  become: true
+  run_once: true
+  register: ceph_mon
+
+- name: "Get ceph osd metadata"
+  tags: latex.ceph.osd
+  ansible.builtin.command: ceph osd metadata
+  become: true
+  run_once: true
+  register: ceph_osd
+
+- name: "Get ceph mds metadata"
+  tags: latex.ceph.mds
+  ansible.builtin.command: ceph orch ps --daemon_type mds --format json
+  become: true
+  run_once: true
+  register: ceph_mds
