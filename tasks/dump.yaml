@@ -1,0 +1,27 @@
+---
+- name: "Get ceph config dump"
+  tags:
+    - ceph.config
+    - ceph.config.dump
+  ansible.builtin.command: ceph config dump --format json
+  become: true
+  run_once: true
+  register: ceph_config_dump
+
+- name: "Get ceph config fsid"
+  tags:
+    - ceph.config
+    - ceph.config.fsid
+  ansible.builtin.command: ceph fsid
+  become: true
+  run_once: true
+  register: ceph_config_fsid
+
+- name: "Get ceph config version"
+  tags:
+    - ceph.config
+    - ceph.config.version
+  ansible.builtin.command: ceph version
+  become: true
+  run_once: true
+  register: ceph_config_version
