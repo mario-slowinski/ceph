@@ -1,0 +1,36 @@
+---
+- name: "Get ceph mon metadata"
+  tags:
+    - ceph.metadata
+    - ceph.metadata.mon
+  ansible.builtin.command: ceph mon metadata
+  become: true
+  run_once: true
+  register: ceph_metadata_mon
+
+- name: "Get ceph osd metadata"
+  tags:
+    - ceph.metadata
+    - ceph.metadata.osd
+  ansible.builtin.command: ceph osd metadata
+  become: true
+  run_once: true
+  register: ceph_metadata_osd
+
+- name: "Get ceph mds metadata"
+  tags:
+    - ceph.metadata
+    - ceph.metadata.mds
+  ansible.builtin.command: ceph mds metadata
+  become: true
+  run_once: true
+  register: ceph_metadata_mds
+
+- name: "Get ceph mgr metadata"
+  tags:
+    - ceph.metadata
+    - ceph.metadata.mgr
+  ansible.builtin.command: ceph mgr metadata
+  become: true
+  run_once: true
+  register: ceph_metadata_mgr
