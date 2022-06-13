@@ -26,10 +26,10 @@
   run_once: true
   register: ceph_dump_version
 
-- name: "Get ceph osd dump"
+- name: "Get ceph pool dump"
   tags:
     - ceph.dump
-    - ceph.dump.osd
+    - ceph.dump.pool
   ansible.builtin.command: ceph osd dump --format json
   become: true
   run_once: true
