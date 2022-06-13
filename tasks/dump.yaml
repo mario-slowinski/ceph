@@ -24,4 +24,13 @@
   ansible.builtin.command: ceph version
   become: true
   run_once: true
-  register: ceph_config_version
+  register: ceph_dump_version
+
+- name: "Get ceph osd dump"
+  tags:
+    - ceph.dump
+    - ceph.dump.osd
+  ansible.builtin.command: ceph osd dump --format json
+  become: true
+  run_once: true
+  register: ceph_dump_osd
