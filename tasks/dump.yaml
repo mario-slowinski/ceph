@@ -35,14 +35,32 @@
   run_once: true
   register: ceph_dump_pool
 
-- name: "Get daemon dump"
+- name: "Get node dump"
+  tags:
+    - ceph.dump
+    - ceph.dump.node
+  ansible.builtin.command: ceph orch host ls --format json
+  become: true
+  run_once: true
+  register: ceph_dump_node
+
+- name: "Get daemon ls dump"
+  tags:
+    - ceph.dump
+    - ceph.dump.daemon
+  ansible.builtin.command: ceph orch ls --format json
+  become: true
+  run_once: true
+  register: ceph_dump_daemon_ls
+
+- name: "Get daemon ps dump"
   tags:
     - ceph.dump
     - ceph.dump.daemon
   ansible.builtin.command: ceph orch ps --format json
   become: true
   run_once: true
-  register: ceph_dump_daemon
+  register: ceph_dump_daemon_ps
 
 - name: "Get ceph osd df"
   tags:
