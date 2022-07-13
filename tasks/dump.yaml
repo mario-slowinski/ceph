@@ -70,3 +70,12 @@
   become: true
   run_once: true
   register: ceph_dump_osd
+
+- name: "Get ceph filesystem"
+  tags:
+    - ceph.dump
+    - ceph.dump.filesystem
+  ansible.builtin.command: ceph fs dump --format json
+  become: true
+  run_once: true
+  register: ceph_dump_fs
